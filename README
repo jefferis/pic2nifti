@@ -2,3 +2,15 @@ This small project is designed to translate Biorad PIC files into a NIFTI image 
 use with the DTI-TK QuickLook plugin.
 
 See http://groups.google.com/group/dtitk/web/How%20can%20you%20help%20extend%20it%3F
+
+The specific relevant files are main.c and biorad.h
+
+The Xcode wrapper allows the program to be tested from the command line.
+You will need to edit the project's header search paths to point somewhere that has znzlib.h
+To debug you will also need to edit the executable and alter the debug argument to point to a pic file. 
+
+Sample Biorad PIC files are available at:
+
+http://flybrain.stanford.edu/refbrain/
+
+but you will need to register for that site.

@@ -1,0 +1,4 @@
+This small project is designed to translate Biorad PIC files into a NIFTI image structure for 
+use with the DTI-TK QuickLook plugin.
+
+See http://groups.google.com/group/dtitk/web/How%20can%20you%20help%20extend%20it%3F

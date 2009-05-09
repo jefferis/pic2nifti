@@ -112,11 +112,10 @@ nifti_image *pic_image_read (const char *filename, bool load_data){
 }
 
 int main (int argc, const char * argv[]) {
-    // insert code here...
-//    printf("Hello, World!\n");
-//	printf("argc %d",argc);
+    nifti_image* ni;
 	if(argc>0){
-		pic_image_read(argv[1],TRUE);
+		ni=pic_image_read(argv[1],TRUE);
+        nifti_image_infodump(ni);
 	}
     return 0;
 }

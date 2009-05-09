@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8DD76FAC0486AB0100D96B5E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
 		8DD76FB00486AB0100D96B5E /* pic2nifti.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* pic2nifti.1 */; };
+		EF394F090FB5829D00C57C36 /* nifti1_io.c in Sources */ = {isa = PBXBuildFile; fileRef = EF394F080FB5829D00C57C36 /* nifti1_io.c */; };
+		EF394F5A0FB58B2D00C57C36 /* znzlib.c in Sources */ = {isa = PBXBuildFile; fileRef = EF394F590FB58B2D00C57C36 /* znzlib.c */; };
+		EF394F600FB58BC700C57C36 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF394F5F0FB58BC700C57C36 /* libz.dylib */; };
 		EF6F257F0FB1B0DD00C90122 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6F257E0FB1B0DD00C90122 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,10 @@
 		08FB7796FE84155DC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* pic2nifti */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pic2nifti; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A0FF2C0290799A04C91782 /* pic2nifti.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = pic2nifti.1; sourceTree = "<group>"; };
+		EF394F080FB5829D00C57C36 /* nifti1_io.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = nifti1_io.c; sourceTree = "<group>"; };
+		EF394F580FB58B2600C57C36 /* znzlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = znzlib.h; sourceTree = "<group>"; };
+		EF394F590FB58B2D00C57C36 /* znzlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = znzlib.c; sourceTree = "<group>"; };
+		EF394F5F0FB58BC700C57C36 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		EF6F06DF0FB1A64500C90122 /* nifti1_io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nifti1_io.h; sourceTree = "<group>"; };
 		EF6F06E30FB1A67700C90122 /* nifti1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nifti1.h; sourceTree = "<group>"; };
 		EF6F25090FB1AC8200C90122 /* biorad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = biorad.h; sourceTree = "<group>"; };
@@ -41,6 +48,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF6F257F0FB1B0DD00C90122 /* CoreFoundation.framework in Frameworks */,
+				EF394F600FB58BC700C57C36 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +58,7 @@
 		08FB7794FE84155DC02AAC07 /* pic2nifti */ = {
 			isa = PBXGroup;
 			children = (
+				EF394F720FB5979B00C57C36 /* External Source */,
 				EF6F25210FB1B0B900C90122 /* External Frameworks and Libraries */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6A0FF2B0290797F04C91782 /* Documentation */,
@@ -62,8 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				EF6F25090FB1AC8200C90122 /* biorad.h */,
-				EF6F06E30FB1A67700C90122 /* nifti1.h */,
-				EF6F06DF0FB1A64500C90122 /* nifti1_io.h */,
 				08FB7796FE84155DC02AAC07 /* main.c */,
 			);
 			name = Source;
@@ -85,9 +92,22 @@
 			name = Documentation;
 			sourceTree = "<group>";
 		};
+		EF394F720FB5979B00C57C36 /* External Source */ = {
+			isa = PBXGroup;
+			children = (
+				EF6F06E30FB1A67700C90122 /* nifti1.h */,
+				EF394F080FB5829D00C57C36 /* nifti1_io.c */,
+				EF6F06DF0FB1A64500C90122 /* nifti1_io.h */,
+				EF394F590FB58B2D00C57C36 /* znzlib.c */,
+				EF394F580FB58B2600C57C36 /* znzlib.h */,
+			);
+			name = "External Source";
+			sourceTree = "<group>";
+		};
 		EF6F25210FB1B0B900C90122 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				EF394F5F0FB58BC700C57C36 /* libz.dylib */,
 				EF6F257E0FB1B0DD00C90122 /* CoreFoundation.framework */,
 			);
 			name = "External Frameworks and Libraries";
@@ -137,6 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD76FAC0486AB0100D96B5E /* main.c in Sources */,
+				EF394F090FB5829D00C57C36 /* nifti1_io.c in Sources */,
+				EF394F5A0FB58B2D00C57C36 /* znzlib.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +179,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = pic2nifti;
 			};
 			name = Debug;
@@ -172,6 +198,10 @@
 				);
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = pic2nifti;
 			};
 			name = Release;
@@ -184,7 +214,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../nrrd/include/InsightToolkit/Utilities\"/**";
+				HEADER_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
@@ -198,7 +228,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../nrrd/include/InsightToolkit/Utilities\"/**";
+				HEADER_SEARCH_PATHS = "";
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
 			};

@@ -49,6 +49,9 @@ nifti_image *pic_image_read (const char *filename, bool load_data){
 	ni->nbyper=header.byte_format?1:2;
 	ni->nvox=ni->nx*ni->ny*ni->nz;
 	ni->datatype=header.byte_format?DT_UNSIGNED_CHAR:NIFTI_TYPE_UINT16;
+	ni->fname=malloc(strlen(filename)+1);
+    strcpy(ni->fname, filename);
+    strcpy(ni->fname+strlen(filename)-3,"nii");
 	
 	if(load_data){
 		if(!(ni->data=calloc(ni->nvox,ni->nbyper))){
@@ -116,6 +119,7 @@ int main (int argc, const char * argv[]) {
 	if(argc>0){
 		ni=pic_image_read(argv[1],TRUE);
         nifti_image_infodump(ni);
+        nifti_image_write(ni);
 	}
     return 0;
 }

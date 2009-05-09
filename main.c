@@ -10,7 +10,7 @@ nifti_image *pic_image_read (const char *filename, bool load_data){
 	
 	int n;
 	biorad_header header;
-	
+
 	f = fopen(filename, "rb");
 	if (f)
 		n = fread(&buffer, BIORAD_HEADER_SIZE, 1, f);
@@ -33,37 +33,42 @@ nifti_image *pic_image_read (const char *filename, bool load_data){
 		printf("This is not a valid biorad pic file!\n");
 		return NULL;
 	}
-	nifti_image	ni;
 	
-	ni.ndim=3;
-	ni.nx=header.nx;
-	ni.ny=header.ny;
-	ni.nz=header.npic;
-	ni.nbyper=header.byte_format?1:2;
-	ni.nvox=ni.nx*ni.ny*ni.nz;
-	ni.datatype=header.byte_format?DT_UNSIGNED_CHAR:NIFTI_TYPE_UINT16;
-	// TODO check this is safe
-	ni.iname=filename;
+    nifti_image* ni;
+    ni=malloc(sizeof(nifti_image));
+    if(!ni) {
+        printf("Failed to allocate memory to nifti image structure!\n");
+        return NULL;
+    }
+    
+    ni->nifti_type=NIFTI_FTYPE_NIFTI1_1;
+	ni->ndim=3;
+	ni->nx=header.nx;
+	ni->ny=header.ny;
+	ni->nz=header.npic;
+	ni->nbyper=header.byte_format?1:2;
+	ni->nvox=ni->nx*ni->ny*ni->nz;
+	ni->datatype=header.byte_format?DT_UNSIGNED_CHAR:NIFTI_TYPE_UINT16;
 	
 	if(load_data){
-		if(!(ni.data=calloc(ni.nvox,ni.nbyper))){
+		if(!(ni->data=calloc(ni->nvox,ni->nbyper))){
 			printf("Failed to allocate memory to load image!\n");
 			return NULL;
 		}
-		if((n=fread(ni.data, ni.nbyper, ni.nvox, f))!=ni.nvox){
+		if((n=fread(ni->data, ni->nbyper, ni->nvox, f))!=ni->nvox){
 			printf("Failed to load image data!\n");
 			return NULL;
 //		} else {
 //			printf("Safely loaded data!\n");
 		}
 		// Byte swap if necessary
-		if(ni.nbyper==2 && CFByteOrderGetCurrent()!=CFByteOrderLittleEndian){
+		if(ni->nbyper==2 && CFByteOrderGetCurrent()!=CFByteOrderLittleEndian){
 			int i=0;
-			for(;ni.nvox;i++)
-				CFSwapInt16(((unsigned short*)ni.data)[i]);
+			for(;ni->nvox;i++)
+				CFSwapInt16(((unsigned short*)ni->data)[i]);
 		}
 	} else {
-		if(fseek(f, ni.nvox*ni.nbyper, SEEK_CUR)!=0)
+		if(fseek(f, ni->nvox*ni->nbyper, SEEK_CUR)!=0)
 			printf("Failed to seek to biorad footer\n");
 	}
 	
@@ -88,22 +93,22 @@ nifti_image *pic_image_read (const char *filename, bool load_data){
 		double d1, d2, d3;
 		if ( 3 == sscanf( note, "AXIS_2 %lf %lf %lf", &d1, &d2, &d3 ) ){
 			printf("X Calibration = %lf",d3);
-			ni.dx=d3;
+			ni->dx=d3;
 		} 
 		if ( 3 == sscanf( note, "AXIS_3 %lf %lf %lf", &d1, &d2, &d3 ) )
-			ni.dy=d3;
+			ni->dy=d3;
 		if ( 3 == sscanf( note, "AXIS_4 %lf %lf %lf", &d1, &d2, &d3 ) )
-			ni.dz=d3;
+			ni->dz=d3;
 
 		if(nh.note_flag==0) break;
 	}
 	
 	// Assume units are microns (all the Biorads I have ever seen are)
-	ni.xyz_units=NIFTI_UNITS_MICRON;
+	ni->xyz_units=NIFTI_UNITS_MICRON;
 
 	fclose(f);
 
-	return 0;
+	return ni;
 }
 
 int main (int argc, const char * argv[]) {

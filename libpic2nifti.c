@@ -1,10 +1,8 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <stdio.h>
-#include "nifti1_io.h"
-#include "biorad.h"
+#include "libpic2nifti.h"
 
-
-nifti_image *pic_image_read (const char *filename, bool load_data){
+nifti_image *pic_image_read (const char *filename, int load_data){
 	FILE *f;
 	unsigned char buffer[BIORAD_HEADER_SIZE];
 	
@@ -114,12 +112,3 @@ nifti_image *pic_image_read (const char *filename, bool load_data){
 	return ni;
 }
 
-int main (int argc, const char * argv[]) {
-    nifti_image* ni;
-	if(argc>0){
-		ni=pic_image_read(argv[1],TRUE);
-        nifti_image_infodump(ni);
-        nifti_image_write(ni);
-	}
-    return 0;
-}

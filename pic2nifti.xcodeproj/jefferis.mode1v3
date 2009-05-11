@@ -216,10 +216,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>EF394F950FB5CEF300C57C36</string>
+						<string>EFA6383F0FB845A9008B69E0</string>
 						<key>history</key>
 						<array>
-							<string>EF394F7D0FB597C400C57C36</string>
+							<string>EF394F950FB5CEF300C57C36</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -256,10 +256,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>EF394F960FB5CEF300C57C36</string>
+						<string>EFA638400FB845A9008B69E0</string>
 						<key>history</key>
 						<array>
-							<string>EF394F7E0FB597C400C57C36</string>
+							<string>EF394F960FB5CEF300C57C36</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -355,6 +355,7 @@
 								<string>EF394F720FB5979B00C57C36</string>
 								<string>EF6F25210FB1B0B900C90122</string>
 								<string>EF6F257E0FB1B0DD00C90122</string>
+								<string>EFA637FB0FB8452E008B69E0</string>
 								<string>08FB7795FE84155DC02AAC07</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FAAC04509CD000000102</string>
@@ -363,13 +364,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>3</integer>
-									<integer>1</integer>
+									<integer>56</integer>
+									<integer>53</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {241, 764}}</string>
+							<string>{{0, 267}, {241, 764}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -404,7 +405,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>nifti1_io.c</string>
+								<string>libpic2nifti.c</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -412,26 +413,25 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>nifti1_io.c</string>
+										<string>libpic2nifti.c</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>EF394F940FB5CEF300C57C36</string>
+										<string>EFA6383E0FB845A9008B69E0</string>
 										<key>history</key>
 										<array>
 											<string>EF6F25870FB1B58A00C90122</string>
 											<string>EF6F26720FB3008000C90122</string>
 											<string>EF6F26730FB3008000C90122</string>
 											<string>EF394F1F0FB588A400C57C36</string>
-											<string>EF394F210FB588A400C57C36</string>
 											<string>EF394F760FB597C400C57C36</string>
 											<string>EF394F770FB597C400C57C36</string>
 											<string>EF394F8B0FB599D100C57C36</string>
-											<string>EF394F780FB597C400C57C36</string>
+											<string>EFA6383B0FB845A9008B69E0</string>
+											<string>EFA6383C0FB845A9008B69E0</string>
 										</array>
 										<key>prevStack</key>
 										<array>
-											<string>EF6F258F0FB1B58A00C90122</string>
 											<string>EF6F25900FB1B58A00C90122</string>
 											<string>EF6F25920FB1B58A00C90122</string>
 											<string>EF6F25930FB1B58A00C90122</string>
@@ -440,7 +440,7 @@
 											<string>EF394F6D0FB5972700C57C36</string>
 											<string>EF394F790FB597C400C57C36</string>
 											<string>EF394F7A0FB597C400C57C36</string>
-											<string>EF394F8C0FB599D100C57C36</string>
+											<string>EFA6383D0FB845A9008B69E0</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -498,9 +498,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>EF394F8E0FB599D100C57C36</string>
+				<string>EFA637FF0FB8453A008B69E0</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>EF394F8F0FB599D100C57C36</string>
+				<string>EFA638000FB8453A008B69E0</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -634,10 +634,14 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>EFA638430FB845A9008B69E0</string>
+		<string>EFA638440FB845A9008B69E0</string>
 		<string>EF6F09A10FB1A80700C90122</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>EF6F260C0FB2CC5300C90122</string>
 		<string>EF6F25A60FB1B58A00C90122</string>
 		<string>/GD/dev/c/pic2nifti/pic2nifti.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>135 55 883 823 0 0 1440 878 </string>
@@ -717,7 +721,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>EF6F09A10FB1A80700C90122</string>
-				<string>EF394F920FB599D100C57C36</string>
+				<string>EFA638410FB845A9008B69E0</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -759,8 +763,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {462, 362}}</string>
-											<string>{{462, 0}, {551, 362}}</string>
+											<string>{{0, 0}, {462, 369}}</string>
+											<string>{{462, 0}, {551, 369}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -775,8 +779,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {1013, 362}}</string>
-											<string>{{0, 362}, {1013, 348}}</string>
+											<string>{{0, 0}, {1013, 369}}</string>
+											<string>{{0, 369}, {1013, 341}}</string>
 										</array>
 									</dict>
 								</dict>
@@ -809,7 +813,7 @@
 										<real>219</real>
 									</array>
 									<key>Frame</key>
-									<string>{{462, 0}, {551, 362}}</string>
+									<string>{{462, 0}, {551, 369}}</string>
 									<key>RubberWindowFrame</key>
 									<string>419 127 1013 751 0 0 1440 878 </string>
 								</dict>
@@ -837,13 +841,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>EF394EE10FB57FE600C57C36</string>
+				<string>EFA638030FB8453A008B69E0</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>EF394EE20FB57FE600C57C36</string>
-				<string>EF394EE30FB57FE600C57C36</string>
-				<string>EF394EE40FB57FE600C57C36</string>
-				<string>EF394EE50FB57FE600C57C36</string>
-				<string>EF394EE60FB57FE600C57C36</string>
+				<string>EFA638040FB8453A008B69E0</string>
+				<string>EFA638050FB8453A008B69E0</string>
+				<string>EFA638060FB8453A008B69E0</string>
+				<string>EFA638070FB8453A008B69E0</string>
+				<string>EFA638080FB8453A008B69E0</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -1007,7 +1011,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>EF394EE70FB57FE600C57C36</string>
+				<string>EFA638420FB845A9008B69E0</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -1017,7 +1021,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

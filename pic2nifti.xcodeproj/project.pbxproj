@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8DD76FAC0486AB0100D96B5E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
 		8DD76FB00486AB0100D96B5E /* pic2nifti.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* pic2nifti.1 */; };
 		EF394F090FB5829D00C57C36 /* nifti1_io.c in Sources */ = {isa = PBXBuildFile; fileRef = EF394F080FB5829D00C57C36 /* nifti1_io.c */; };
 		EF394F5A0FB58B2D00C57C36 /* znzlib.c in Sources */ = {isa = PBXBuildFile; fileRef = EF394F590FB58B2D00C57C36 /* znzlib.c */; };
 		EF394F600FB58BC700C57C36 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF394F5F0FB58BC700C57C36 /* libz.dylib */; };
 		EF6F257F0FB1B0DD00C90122 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6F257E0FB1B0DD00C90122 /* CoreFoundation.framework */; };
+		EFA638370FB84592008B69E0 /* pic2nifti.c in Sources */ = {isa = PBXBuildFile; fileRef = EFA638340FB84592008B69E0 /* pic2nifti.c */; };
+		EFA638380FB84592008B69E0 /* libpic2nifti.c in Sources */ = {isa = PBXBuildFile; fileRef = EFA638360FB84592008B69E0 /* libpic2nifti.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,7 +30,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		08FB7796FE84155DC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* pic2nifti */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pic2nifti; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A0FF2C0290799A04C91782 /* pic2nifti.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = pic2nifti.1; sourceTree = "<group>"; };
 		EF394F080FB5829D00C57C36 /* nifti1_io.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = nifti1_io.c; sourceTree = "<group>"; };
@@ -40,6 +40,9 @@
 		EF6F06E30FB1A67700C90122 /* nifti1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nifti1.h; sourceTree = "<group>"; };
 		EF6F25090FB1AC8200C90122 /* biorad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = biorad.h; sourceTree = "<group>"; };
 		EF6F257E0FB1B0DD00C90122 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		EFA638340FB84592008B69E0 /* pic2nifti.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pic2nifti.c; sourceTree = "<group>"; };
+		EFA638350FB84592008B69E0 /* libpic2nifti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libpic2nifti.h; sourceTree = "<group>"; };
+		EFA638360FB84592008B69E0 /* libpic2nifti.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libpic2nifti.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +73,10 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				EFA638340FB84592008B69E0 /* pic2nifti.c */,
+				EFA638350FB84592008B69E0 /* libpic2nifti.h */,
+				EFA638360FB84592008B69E0 /* libpic2nifti.c */,
 				EF6F25090FB1AC8200C90122 /* biorad.h */,
-				08FB7796FE84155DC02AAC07 /* main.c */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -156,9 +161,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DD76FAC0486AB0100D96B5E /* main.c in Sources */,
 				EF394F090FB5829D00C57C36 /* nifti1_io.c in Sources */,
 				EF394F5A0FB58B2D00C57C36 /* znzlib.c in Sources */,
+				EFA638370FB84592008B69E0 /* pic2nifti.c in Sources */,
+				EFA638380FB84592008B69E0 /* libpic2nifti.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

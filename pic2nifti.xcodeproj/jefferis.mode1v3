@@ -216,10 +216,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>EF394F7D0FB597C400C57C36</string>
+						<string>EF394F950FB5CEF300C57C36</string>
 						<key>history</key>
 						<array>
-							<string>EF06C60E0FB359AE004B93A4</string>
+							<string>EF394F7D0FB597C400C57C36</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -256,10 +256,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>EF394F7E0FB597C400C57C36</string>
+						<string>EF394F960FB5CEF300C57C36</string>
 						<key>history</key>
 						<array>
-							<string>EF06C60F0FB359AE004B93A4</string>
+							<string>EF394F7E0FB597C400C57C36</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -404,7 +404,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>nifti1_io.h</string>
+								<string>nifti1_io.c</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -412,11 +412,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>nifti1_io.h</string>
+										<string>nifti1_io.c</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>EF394F7C0FB597C400C57C36</string>
+										<string>EF394F940FB5CEF300C57C36</string>
 										<key>history</key>
 										<array>
 											<string>EF6F25870FB1B58A00C90122</string>
@@ -426,8 +426,8 @@
 											<string>EF394F210FB588A400C57C36</string>
 											<string>EF394F760FB597C400C57C36</string>
 											<string>EF394F770FB597C400C57C36</string>
+											<string>EF394F8B0FB599D100C57C36</string>
 											<string>EF394F780FB597C400C57C36</string>
-											<string>EF394F1E0FB588A400C57C36</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -436,16 +436,11 @@
 											<string>EF6F25920FB1B58A00C90122</string>
 											<string>EF6F25930FB1B58A00C90122</string>
 											<string>EF6F259D0FB1B58A00C90122</string>
-											<string>EF394EDB0FB57FE600C57C36</string>
-											<string>EF394EDC0FB57FE600C57C36</string>
-											<string>EF394F230FB588A400C57C36</string>
-											<string>EF394F240FB588A400C57C36</string>
 											<string>EF394F250FB588A400C57C36</string>
-											<string>EF394F270FB588A400C57C36</string>
 											<string>EF394F6D0FB5972700C57C36</string>
 											<string>EF394F790FB597C400C57C36</string>
 											<string>EF394F7A0FB597C400C57C36</string>
-											<string>EF394F7B0FB597C400C57C36</string>
+											<string>EF394F8C0FB599D100C57C36</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -503,9 +498,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>EF394EBE0FB4AED500C57C36</string>
+				<string>EF394F8E0FB599D100C57C36</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>EF394EBF0FB4AED500C57C36</string>
+				<string>EF394F8F0FB599D100C57C36</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -639,10 +634,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>EF394F2B0FB588A400C57C36</string>
-		<string>EF394F2C0FB588A400C57C36</string>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>EF6F09A10FB1A80700C90122</string>
 		<string>EF6F260C0FB2CC5300C90122</string>
 		<string>EF6F25A60FB1B58A00C90122</string>
@@ -687,8 +678,6 @@
 							<string>168pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -728,7 +717,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>EF6F09A10FB1A80700C90122</string>
-				<string>EF394EE00FB57FE600C57C36</string>
+				<string>EF394F920FB599D100C57C36</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

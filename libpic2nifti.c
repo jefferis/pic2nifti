@@ -32,44 +32,51 @@ nifti_image *pic_image_read (const char *filename, int load_data){
 		return NULL;
 	}
 	
-    nifti_image* ni;
-    ni=malloc(sizeof(nifti_image));
-    if(!ni) {
-        printf("Failed to allocate memory to nifti image structure!\n");
-        return NULL;
-    }
-    
-    ni->nifti_type=NIFTI_FTYPE_NIFTI1_1;
-	ni->ndim=3;
-	ni->nx=header.nx;
-	ni->ny=header.ny;
-	ni->nz=header.npic;
-	ni->nbyper=header.byte_format?1:2;
-	ni->nvox=ni->nx*ni->ny*ni->nz;
-	ni->datatype=header.byte_format?DT_UNSIGNED_CHAR:NIFTI_TYPE_UINT16;
-	ni->fname=malloc(strlen(filename)+1);
-    strcpy(ni->fname, filename);
-    strcpy(ni->fname+strlen(filename)-3,"nii");
+	nifti_image* nim = nifti_simple_init_nim();
+	if(!nim) {
+		printf("Failed to allocate memory to nifti image structure!\n");
+		return NULL;
+	}
+	
+	nim->nifti_type=NIFTI_FTYPE_NIFTI1_1;
+	nim->ndim = 3;
+	nim->nx = header.nx;
+	nim->ny = header.ny;
+	nim->nz = header.npic;
+	nim->nt = 0;
+	nim->nu = 0;
+	nim->nv = 0;
+	nim->nw = 0;
+	nim->dim[0] = 3;
+	nim->dim[1] = header.nx;
+	nim->dim[2] = header.ny;
+	nim->dim[3] = header.npic;
+	nim->nbyper=header.byte_format?1:2;
+	nim->nvox=nim->nx*nim->ny*nim->nz;
+	nim->datatype=header.byte_format?DT_UNSIGNED_CHAR:NIFTI_TYPE_UINT16;
+	nim->fname=malloc(strlen(filename)+1);
+	strcpy(nim->fname, filename);
+	strcpy(nim->fname+strlen(filename)-3,"nii");
 	
 	if(load_data){
-		if(!(ni->data=calloc(ni->nvox,ni->nbyper))){
+		if(!(nim->data=calloc(nim->nvox,nim->nbyper))){
 			printf("Failed to allocate memory to load image!\n");
 			return NULL;
 		}
-		if((n=fread(ni->data, ni->nbyper, ni->nvox, f))!=ni->nvox){
+		if((n=fread(nim->data, nim->nbyper, nim->nvox, f))!=nim->nvox){
 			printf("Failed to load image data!\n");
 			return NULL;
 //		} else {
 //			printf("Safely loaded data!\n");
 		}
 		// Byte swap if necessary
-		if(ni->nbyper==2 && CFByteOrderGetCurrent()!=CFByteOrderLittleEndian){
+		if(nim->nbyper==2 && CFByteOrderGetCurrent()!=CFByteOrderLittleEndian){
 			int i=0;
-			for(;ni->nvox;i++)
-				CFSwapInt16(((unsigned short*)ni->data)[i]);
+			for(;nim->nvox;i++)
+				CFSwapInt16(((unsigned short*)nim->data)[i]);
 		}
 	} else {
-		if(fseek(f, ni->nvox*ni->nbyper, SEEK_CUR)!=0)
+		if(fseek(f, nim->nvox*nim->nbyper, SEEK_CUR)!=0)
 			printf("Failed to seek to biorad footer\n");
 	}
 	
@@ -84,8 +91,8 @@ nifti_image *pic_image_read (const char *filename, int load_data){
 		memcpy(&nh.note_flag, noteheaderbuf+2, sizeof(nh.note_flag));
 		memcpy(&nh.note_type, noteheaderbuf+10, sizeof(nh.note_type));
 		
-		printf("regular note line %s\n",note);
-		printf("note flag = %d, note type = %d\n",nh.note_flag,nh.note_type);
+//		printf("regular note line %s\n",note);
+//		printf("note flag = %d, note type = %d\n",nh.note_flag,nh.note_type);
 		
 		// These are not interesting notes
 		if(nh.note_type==1) continue;
@@ -93,22 +100,35 @@ nifti_image *pic_image_read (const char *filename, int load_data){
 		// Look for calibration information
 		double d1, d2, d3;
 		if ( 3 == sscanf( note, "AXIS_2 %lf %lf %lf", &d1, &d2, &d3 ) ){
-			printf("X Calibration = %lf",d3);
-			ni->dx=d3;
+//			printf("X Calibration = %lf",d3);
+			nim->dx = d3;
+			nim->pixdim[1] = d3;
 		} 
-		if ( 3 == sscanf( note, "AXIS_3 %lf %lf %lf", &d1, &d2, &d3 ) )
-			ni->dy=d3;
-		if ( 3 == sscanf( note, "AXIS_4 %lf %lf %lf", &d1, &d2, &d3 ) )
-			ni->dz=d3;
+		if ( 3 == sscanf( note, "AXIS_3 %lf %lf %lf", &d1, &d2, &d3 ) ){
+			nim->dy = d3;
+			nim->pixdim[2] = d3;
+		}
+		if ( 3 == sscanf( note, "AXIS_4 %lf %lf %lf", &d1, &d2, &d3 ) ){
+			nim->dz = d3;
+			nim->pixdim[3] = d3;
+		}
 
 		if(nh.note_flag==0) break;
 	}
+	nim->dt = 0.0;
+	nim->du = 0.0;
+	nim->dv = 0.0;
+	nim->dw = 0.0;
+	nim->qfac = 1.0;
+	nim->qoffset_x = 0.0;
+	nim->qoffset_y = 0.0;
+	nim->qoffset_z = 0.0;
 	
 	// Assume units are microns (all the Biorads I have ever seen are)
-	ni->xyz_units=NIFTI_UNITS_MICRON;
+	nim->xyz_units=NIFTI_UNITS_MICRON;
 
 	fclose(f);
 
-	return ni;
+	return nim;
 }
 

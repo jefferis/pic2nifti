@@ -7,7 +7,8 @@ TARGET = libpic2nifti.o
 LIB=libpic2nifti.a
 BIN=pic2nifti
 
-CFLAGS = -g -O3 -arch i386 -arch ppc
+#CFLAGS = -g -O3 -arch i386 -arch ppc
+CFLAGS = -O3 -arch i386 -arch ppc
 FLAGS = -arch i386 -arch ppc
 
 all : $(BIN)
